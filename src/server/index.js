@@ -1,15 +1,15 @@
 // set dotenv for API
-// const dotenv = require('dotenv');
-// dotenv.config();
-// console.log(`Your API key is ${process.env.API_KEY}`);
+const dotenv = require('dotenv');
+dotenv.config();
+console.log(`Your API key is ${process.env.pixabay_KEY}`);
 
 // dark sky API
 const darkSkyURL = 'https://api.darksky.net/forecast/';
-const darkSkyKey = 'f06bcfc7a1f70b77c8b9d47323dcef73/';
+// const darkSkyKey = 'f06bcfc7a1f70b77c8b9d47323dcef73/';
 
 // pixabay API
 const pixabayURL = 'https://pixabay.com/api/';
-const pixabayKey = '?key=15288983-2cac2e8ac88dca3deb5bbe65d&q=';
+// const pixabayKey = '?key=15288983-2cac2e8ac88dca3deb5bbe65d&q=';
 const pixabayType = '&image_type=photo';
 
 // Setup empty JS object to act as endpoint for all routes
@@ -57,7 +57,7 @@ app.get('/darksky', (req, res) => {
     {
       url:
         darkSkyURL +
-        darkSkyKey +
+        process.env.darkSky_KEY +
         projectData.lat +
         ',' +
         projectData.lng +
@@ -77,7 +77,11 @@ app.get('/darksky', (req, res) => {
 app.get('/pixabay', (req, res) => {
   request(
     {
-      url: pixabayURL + pixabayKey + projectData.cityName + pixabayType
+      url:
+        pixabayURL +
+        process.env.pixabay_KEY +
+        projectData.cityName +
+        pixabayType
     },
     (error, response, body) => {
       if (error || response.statusCode !== 200) {

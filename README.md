@@ -1,6 +1,6 @@
 # Travel app
 
-init
+This project requires you to build a travel application that obtains the travel location and date from the user and uses the information obtained from the external API to display the weather and images of the travel location.
 
 ## Get Up and Running
 
