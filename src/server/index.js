@@ -63,8 +63,6 @@ app.get('/darksky', (req, res) => {
         projectData.lng +
         ',' +
         projectData.timeTag
-      // url:
-      //   'https://api.darksky.net/forecast/f06bcfc7a1f70b77c8b9d47323dcef73/37.8267,-122.4233,20200303'
     },
     (error, response, body) => {
       if (error || response.statusCode !== 200) {
@@ -80,8 +78,6 @@ app.get('/pixabay', (req, res) => {
   request(
     {
       url: pixabayURL + pixabayKey + projectData.cityName + pixabayType
-      // url:
-      //   'https://api.darksky.net/forecast/f06bcfc7a1f70b77c8b9d47323dcef73/37.8267,-122.4233,20200303'
     },
     (error, response, body) => {
       if (error || response.statusCode !== 200) {
@@ -94,18 +90,17 @@ app.get('/pixabay', (req, res) => {
 });
 
 // POST route
-app.post('/addData', addData);
+app.post('/addData/location', addLocationData);
 
-function addData(req, res) {
+function addLocationData(req, res) {
   // console.log(request.body)
   let data = req.body;
 
   // Create new entry for JS Object Endpoint
-  // projectData.temp = data.temp;
   projectData.lng = data.lng;
   projectData.lat = data.lat;
-  projectData.countryName = data.countryName;
   projectData.cityName = data.cityName;
+  projectData.countryName = data.countryName;
   projectData.myDate = data.myDate;
   projectData.timeTag = data.timeTag;
 
@@ -121,8 +116,6 @@ function addWeatherData(req, res) {
   let data = req.body;
 
   // Create new entry for JS Object Endpoint
-  // projectData.temp = data.temp;
-  
   projectData.summary = data.summary;
   projectData.temperatureHigh = data.temperatureHigh;
   projectData.temperatureLow = data.temperatureLow;
@@ -139,9 +132,21 @@ function addImg(req, res) {
   let data = req.body;
 
   // Create new entry for JS Object Endpoint
-  // projectData.temp = data.temp;
-
   projectData.cityImg = data.cityImg;
+
+  // Send response to Endpoint
+  console.log(projectData);
+  res.send(projectData);
+}
+
+app.post('/removeData', removeData);
+
+function removeData(req, res) {
+  // console.log(request.body)
+  let data = req.body;
+
+  // Create new entry for JS Object Endpoint
+  projectData = data;
 
   // Send response to Endpoint
   console.log(projectData);

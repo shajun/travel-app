@@ -24,6 +24,7 @@
   grid-area: header;
   flex-direction: column-reverse;
   padding: 1rem 0;
+  font-size: 2rem;
 }
 
 #content {
@@ -42,7 +43,7 @@
   background-color: rgb(253, 218, 240);
 }
 
-// Component
+// Components
 
 .holder {
   display: flex;
@@ -53,11 +54,11 @@
   // border-radius: 5px;
   // box-shadow: 0 1px 5px #cccccc;
   // background: white;
-}
 
-.holder {
   .city,
   .myDate {
+    display: flex;
+    justify-content: center;
     margin-bottom: 1rem;
   }
 
@@ -69,16 +70,41 @@
 
 .trip {
   padding: 0;
+  display: flex;
+  flex-direction: column;
   width: 100%;
 
   img {
     width: 100%;
+  }
+
+  .info {
+    padding: 2rem;
+
+    #location,
+    #departing {
+      padding-bottom: 1rem;
+      font-size: 1rem;
+      font-weight: bold;
+    }
+
+    #show {
+      padding-top: 1rem;
+      padding-bottom: 0.8rem;
+      font-size: 1rem;
+      font-weight: bold;
+    }
+
+    p {
+      line-height: 1.5rem;
+    }
   }
 }
 
 label {
   font-size: 1.3rem;
   font-weight: bold;
+  line-height: 50px;
 }
 
 input {
@@ -93,22 +119,67 @@ input {
   border: none;
 }
 
+button {
+  margin: 0 5px;
+  width: 30vw;
+  height: 6vh;
+  background: #3b4a6b;
+  color: #f0d43a;
+  font-size: 18px;
+  font-family: 'Oswald', sans-serif;
+  border: 1px solid #bdbdbd;
+  border-radius: 5px;
+  box-shadow: 0 1px 5px #cccccc;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #388e3c;
+  color: #ffffff;
+}
+
+#remove {
+  color: #666666;
+  background-color: #ffffff;
+}
+
+#remove:hover {
+  color: #ffffff;
+  background-color: #ff3300;
+}
+
 /* Medium Screens */
 @media (min-width: 600px) and (max-width: 900px) {
   /* Layout */
 
   /* Components */
 
-  /* holder */
   .holder {
     display: flex;
     flex-direction: column;
     padding: 15px;
     width: 70vw;
-    border: 1px solid #bdbdbd;
-    border-radius: 5px;
-    box-shadow: 0 1px 5px #cccccc;
-    background: white;
+    // border: 1px solid #bdbdbd;
+    // border-radius: 5px;
+    // box-shadow: 0 1px 5px #cccccc;
+    // background: white;
+  }
+
+  .trip {
+    flex-direction: row;
+
+    .view {
+      width: 40vw;
+    }
+
+    .info {
+      padding-top: 0;
+      width: 50vw;
+    }
+  }
+
+  button {
+    width: 15vw;
   }
 }
 
@@ -122,8 +193,24 @@ input {
 
   /* Components */
 
-  /* holder */
   .holder {
-    width: 24rem;
+    width: 50vw;
+  }
+
+  .trip {
+    flex-direction: row;
+
+    .view {
+      width: 40vw;
+    }
+
+    .info {
+      padding-top: 0;
+      width: 50vw;
+    }
+  }
+
+  button {
+    width: 12vw;
   }
 }
