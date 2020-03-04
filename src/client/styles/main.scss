@@ -119,6 +119,11 @@ input {
   border: none;
 }
 
+input:hover {
+  background: #22b2da;
+  color: #ffffff;
+}
+
 button {
   margin: 0 5px;
   width: 30vw;

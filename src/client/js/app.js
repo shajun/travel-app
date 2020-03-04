@@ -2,6 +2,10 @@
 let geonamesURL = 'http://api.geonames.org/searchJSON?q=';
 let geonamesKey = '&maxRows=10&username=junsha';
 
+window.onload = function() {
+  updateUI();
+};
+
 // click event listener
 document.getElementById('generate').addEventListener('click', performAction);
 

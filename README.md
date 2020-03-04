@@ -10,6 +10,10 @@ Fork this repo, then clone the branch of your choice from your forked repo down 
 git clone -- git@github.com:[your-user-name]/travel-app.git --
 ```
 
+Note: dark sky api and pixabay api keys are stored in env folder.
+- ```darkSky_KEY```
+- ```pixabay_KEY```
+
 `cd` into your new folder and run:
 - ```npm install```
 - ```npm test``` to test the app
